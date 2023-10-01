@@ -1,0 +1,14 @@
+﻿@model TravelTripProject.Models.Classes.BlogComment
+<div class="content-form">
+	<h3>Leave a comment</h3>
+	<form asp-action="WriteComment" asp-controller="Blog">
+		@foreach (var blog in Model.blogValue)
+		{
+			<input type="hidden" name="blogId" value="@blog.ID" />
+			<input type="text" name="UserName" placeholder="User name" required />
+			<input type="text" name="Email" placeholder="Email" required />
+			<textarea name="Comments" placeholder="Message"></textarea>
+			<input type="submit" value="SEND" />
+		}
+	</form>
+</div>

@@ -1,0 +1,135 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+@{
+	// var blogList = Model.OrderByDescending(b => b.Date).Take(3).ToList(); It's for previous solution way
+	// i created this variable for counting 1,2,3(i man 0,1,2 :))
+	int i = 0;
+}
+
+
+<div class="con-bot">
+	@foreach (var blog in Model.OrderByDescending(b => b.Date).Take(3).ToList())
+	{
+		//For first and second one becuase they use left class
+		if(i <= 1)
+		{
+			<div class="left">
+				<div class="bot-left">
+					<img src="@blog.BlogImage" alt="" style="width:290px; height:150px;" />
+				</div>
+				<div class="left-text">
+					<h4>@blog.Title</h4>
+					<span class="doller">@blog.Date.ToString("dd/MM/yyyy")</span>
+					<p>@blog.Description.Substring(0,75)</p>
+					<p><a href="/Blog/BlogDetails/@blog.ID"><span class="read">Read More >></span></a></p>
+				</div>
+			</div>
+		}
+		//for last one because it uses right class
+		else
+		{
+			<div class="right">
+				<div class="bot-left">
+					<img src="@blog.BlogImage" alt="" style="width:290px; height:150px;" />
+				</div>
+				<div class="left-text">
+					<h4>@blog.Title</h4>
+					<span class="doller">@blog.Date.ToString("dd/MM/yyyy")</span>
+					<p>@blog.Description.Substring(0,75)</p>
+					<p><a href="/Blog/BlogDetails/@blog.ID"><span class="read">Read More >></span></a></p>
+				</div>
+			</div>
+		}
+		i++;
+	}
+	<div class="clear"></div>
+</div>
+
+
+
+@* 
+	This is previous method, i had created bloglist and go on it.
+	<div class="con-bot">
+	@for (int i = 0; i < 2; i++)
+	{
+		<div class="left">
+			<div class="bot-left">
+				<img src="@blogList[i].BlogImage" alt="" style="width:290px; height:150px;" />
+			</div>
+			<div class="left-text">
+				<h4>@blogList[i].Title</h4>
+				<span class="doller">@blogList[i].Date.ToString("dd/MM/yyyy")</span>
+				<p>@blogList[i].Description.Substring(0,75)</p>
+				<p><a href="/Blog/BlogDetails/@blogList[i].ID"><span class="read">Read More >></span></a></p>
+			</div>
+		</div>
+	}
+	<div class="right">
+		<div class="bot-left">
+			<img src="@blogList[2].BlogImage" alt="" style="width:290px; height:150px;" />
+		</div>
+		<div class="left-text">
+			<h4>@blogList[2].Title</h4>
+			<span class="doller">@blogList[2].Date.ToString("dd/MM/yyyy")</span>
+			<p>@blogList[2].Description.Substring(0,75)</p>
+			<p><a href="/Blog/BlogDetails/@blogList[2].ID"><span class="read">Read More >></span></a></p>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div> *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <div class="con-bot">
+	 @foreach (var blog in Model.OrderByDescending(b => b.Date).Take(3))
+		{
+			<div class="right">
+				<div class="bot-left" style="margin-right:50px; width:270px;">
+					<img src="@blog.BlogImage" alt="" style="width:290px; height:140px;" />
+				</div>
+					<div class="left-text">
+					<h4>@blog.Title</h4>
+					<span class="doller">@blog.Date.ToString("dd.MM.yyyy")</span>
+					<p>@blog.Description.Substring(0,75)</p>
+					<p><a href="/Blog/BlogDetails/@blog.ID"><span class="read">Read More >></span></a></p>
+				</div>
+			</div>
+		} 
+	<div class="clear"></div>
+</div>
+<br /> *@
+
+
+
+@* @foreach (var blog in Model.OrderByDescending(b => b.Date).Take(2))
+{
+	<div class="left">
+		<div class="bot-left">
+			<img src="@blog.BlogImage" alt="" style="width:290px; height:150px;" />
+		</div>
+		<div class="left-text">
+			<h4>@blog.Title</h4>
+			<span class="doller">@blog.Date</span>
+			<p>Description</p>
+			<p><a href="/Blog/BlogDetails/@blog.ID"><span class="read">Read More >></span></a></p>
+		</div>
+	</div>
+} *@
+
+
+
+
+
+

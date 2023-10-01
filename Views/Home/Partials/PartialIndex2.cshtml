@@ -1,0 +1,23 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+
+
+<div class="padding">
+    <h4>This Week's Top 10</h4>
+        <ul class="list list-pad">
+            @{ int i = 0;}
+            @foreach (var blog in Model.OrderByDescending(b => b.Date).Take(10).ToList())
+            {
+                if(i % 2 == 0)
+                {
+                    <li class="list-bg"><span>@(i + 1).</span><a href="/Blog/BlogDetails/@blog.ID">@blog.Title</a></li>
+                }
+                else
+                {
+                    <li class="list-bg1"><span>@(i + 1).</span><a href="/Blog/BlogDetails/@blog.ID">@blog.Title</a></li>
+                }
+            i++;
+            }
+        </ul>
+    <a href="/Blog/Index/" class="link1">See all blogs</a>
+</div>

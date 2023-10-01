@@ -1,0 +1,108 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+
+@{
+    var blog = Model.OrderByDescending(b => b.Date).Take(6).ToList();
+    int i = 0;
+}
+
+ <div class="padding1">
+    <h4>Our Best Places</h4>
+    <div class="box-left">
+    @for(i = 0; i < 3; i++)
+    {
+         <div class="bot-img">
+             <img src="@blog[i].BlogImage" alt="" style="width:120px; height:80px;"/>
+         </div>
+         <div class="bot-desc">
+             <p>@blog[i].Description.Substring(0, 75) </p>
+         </div>
+         <div class="clear"></div>
+    }
+    </div>
+    <div class="box1-left">
+        @for (int k = i; k < 6; k++)
+        {
+            <div class="bot-img">
+                <img src="@blog[k].BlogImage" alt="" style="width:120px; height:80px;" />
+            </div>
+            <div class="bot-desc">
+                <p>@blog[k].Description.Substring(0, 75) </p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ @* <div class="padding1">
+    <h4>Our Best Places</h4>
+    <div class="box-left">
+        <div class="bot-img">
+            <img src="~/images/pic3.jpg" alt="" />
+        </div>
+        <div class="bot-desc">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+        </div>
+        <div class="clear"></div>
+        <div class="bot-img">
+            <img src="~/images/pic7.jpg" alt="" />
+        </div>
+        <div class="bot-desc">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+        </div>
+        <div class="clear"></div>
+        <div class="bot-img">
+            <img src="~/images/pic8.jpg" alt="" />
+        </div>
+        <div class="bot-desc">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="box1-left">
+        <div class="bot-img">
+            <img src="~/images/pic9.jpg" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+        </div>
+        <div class="clear"></div>
+        <div class="bot-img">
+            <img src="~/images/pic10.jpg" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+        </div>
+        <div class="clear"></div>
+        <div class="bot-img">
+            <img src="~/images/pic3.jpg" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div> 
+ *@

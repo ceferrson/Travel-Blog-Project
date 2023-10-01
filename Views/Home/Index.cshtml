@@ -1,0 +1,97 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+@{
+    ViewData["Title"] = "TestIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<body>
+<div class="header-banner">
+<div class="wrap">
+	<div class="banner">
+		<div class="indent">
+                <h2 class="indent-left margin-bot">Plan the Easy Trip</h2>		
+				<div class="banner-left">
+				   	<div class="con-text">
+							<div class="grid1-img">
+								<img src="~/images/glass.png" alt="">
+							</div>
+							<div class="grid1-desc">
+								<p>Restaurants</p>
+							</div>
+							<div class="clear"></div>
+					</div>
+					<div class="con-text">
+							<div class="grid1-img">
+								<img src="~/images/flight.png" alt="">
+							</div>
+							<div class="grid1-desc">
+								<p>Flights</p>
+							</div>
+							<div class="clear"></div>
+					</div>
+	<div class="con-text">
+			<div class="grid1-img">
+				<img src="~/images/group.png" alt="">
+			</div>
+			<div class="grid1-desc">
+				<p>Things to do</p>
+			</div>
+			<div class="clear"></div>
+	</div>
+	<div class="con-text">
+			<div class="grid1-img">
+				<img src="~/images/key.png" alt="">
+			</div>
+			<div class="grid1-desc">
+				<p>Vacation Rents</p>
+			</div>
+			<div class="clear"></div>
+	</div>
+   <div class="clear"></div>
+</div>
+<div class="header_bottom_right_images">
+
+ <div class="slider">
+	    <ul class="rslides" id="slider1">
+	      
+          @foreach(var blog in Model.OrderByDescending(b => b.Date).Take(7).ToList())
+            {
+                <li><img src="@blog.BlogImage" alt="" style="width:650px; height:365px;"></li>
+            }
+        </ul>
+    </div>
+	       </div>                                        
+	</div>
+    <div class="clear"></div>
+      </div>
+      	<div class="clear"></div>
+      </div>
+      </div>
+     <div class"content">
+      	<div class="wrap">
+      		<div class="wrapper">
+      	<div class="con-top">
+      		<h3>Welcome to My Travel-Trip Blog!</h3>
+      		<p>"Embark on a journey of discovery with My Travel-Trip Blog! Get ready to explore captivating destinations, 
+                  immerse yourself in rich cultures, and uncover hidden gems from around the world. Join us as we share our travel
+                  tales, insider tips, and unforgettable experiences, inspiring you to embark on your own adventures. 
+                  Whether you're a seasoned globetrotter or a first-time traveler, our blog is your passport to a world of wanderlust.
+                  Welcome aboard!"
+             </p>
+      	</div>
+          <!--Top 3 blog Partial View-->
+       <partial name="~/Views/Home/Partials/PartialIndex.cshtml" />
+      		<div class="grids">
+      	<div class="box1">
+             <partial name="~/Views/Home/Partials/PartialIndex2.cshtml" />     
+			 <partial name="~/Views/Home/Partials/PartialIndex3.cshtml" />
+              <div class="clear"></div>      
+      	</div>
+     </div>
+      </div>
+      </div></div>
+
+</body>
+</html>

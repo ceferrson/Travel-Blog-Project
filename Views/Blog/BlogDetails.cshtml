@@ -1,0 +1,72 @@
+﻿@model TravelTripProject.Models.Classes.BlogComment
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Personal Blog a Blogging Category Flat Bootstarp Responsive Website Template | Single :: w3layouts</title>
+	<link href="~/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="~/web/css/style.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+</head>
+<body>
+	<!---header---->
+	<div class="single">
+		<div class="container">
+			<div class="col-md-8 single-main">
+				@foreach(var blog in Model.blogValue)
+				{
+					<div class="single-grid">
+						<img src="@blog.BlogImage" alt="" style="margin-bottom:10px;"/>
+						<h4>@blog.Title</h4>
+						<p>
+							@blog.Description
+						</p>
+					</div>
+				}
+				@foreach(var comment in Model.commentValue)
+				{
+					<ul class="comment-list">
+						<li>
+							<img src="~/web/images/avatar.png" class="img-responsive" alt="">
+							<div class="desc">
+								<p>@comment.UserName: @comment.Comments</p>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+				}
+				<partial name="~/Views/Blog/Partials/PartialIndex.cshtml" />
+			</div>
+
+			<div class="col-md-4 side-content">
+				<div class="comments">
+					<h3>RECENT COMMENTS</h3>
+					<ul>
+						@foreach(var comment in Model.commentValue.OrderByDescending(c => c.ID).Take(3).ToList())
+						{
+							if(comment.ID != 0)
+							{
+								<li><a href="#">@comment.UserName </a> : <a href="#">@comment.Comments</a></li>
+							}
+							else
+							{
+								<h4>There is no comment for this blog!</h4>
+							}
+						}
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+

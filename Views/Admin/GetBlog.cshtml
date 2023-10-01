@@ -1,0 +1,26 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewData["Title"] = "GetBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Blog Updating Page</h1>
+<br />
+<form asp-action="UpdateBlog" asp-controller="Admin" method="post">
+    <label>ID</label>
+    <input type="text" asp-for="ID" class="form-control" readonly="readonly" />
+    <label>Title</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Date</label>
+    <input type="text" asp-for="Date" class="form-control" />
+    <br />
+    <label>Description</label>
+    <textarea class="form-control" rows="8" cols="1" asp-for="Description"></textarea>
+    <br />
+    <label>Image Url</label>
+    <input type="text" class="form-control" asp-for="BlogImage" />
+    <br />
+    <button class="btn btn-primary">Update Blog</button>
+</form>
+
